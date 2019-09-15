@@ -23,16 +23,43 @@ function getCredentials() {
 	});
 }
 */
-function getCode(filename, state) {
-	window.open(filename + '?' + qs({
+async function getCode(filename, state) {
+	let options = {
 		client_id: 'GCS7Ccr9TBoA0PUCgaoIidpLPS9k3iIa',
 		redirect_uri,
 		nonce: Math.floor(Math.pow(10, 16) * Math.rand()),
 		response_type: 'code',
 		state,
 		scope: 'openid payments',
-		request: null
-	}));
+		request: await generateJWT
+	};
+	options.request = await generateJWT(options);
+	window.open(filename + '?' + qs(options));
+}
+
+async function generateJWT(options) {
+	let payload = Object.assign({
+		iss: 'https://api.openbank.com',
+		claims: {
+			id_token: {
+				openbanking_intent_id: {
+					value: "urn:openbank:intent:accounts:<RequestId>",
+					essential: true
+				},
+				acr: {
+					essential: true
+				}
+			}
+		}
+	}, options)
+	return request('https://openbank.apigee.io/ajax/getJWT?' + qs({
+		header: JSON.stringify({
+			alg: 'RS256',
+			expiresIn: '1h',
+			scope
+		}),
+		payload: JSON.stringify(payload)
+	}))
 }
 /*
 function getToken(filename, credentials, code) {
