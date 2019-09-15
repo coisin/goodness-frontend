@@ -1,0 +1,16 @@
+{
+	"gross-annual-household-income": "input_income",
+	"electricityCost": "input_footprint_housing_electricity_dollars",
+	"electricityPercentage": "input_takeaction_purchase_green_electricity",
+	"heatingOilCost": "<input_footprint_housing_heatingoil_gallons",
+	"livingSpaceArea": "30",
+	"naturalGasCost": "50",
+	"waterUsagePercentage": 197,
+	"people-in-household": 0,
+	"vehicles": "vehicles",
+	"airTravelMilesCost": "7",
+	"fuelType": "gasoline",
+	"milesCost": "23",
+	"milesPerG": 10,
+	"publicTransitMilesCost": "3"
+}

@@ -27,11 +27,10 @@ async function getCode(filename, state) {
 	let options = {
 		client_id: 'GCS7Ccr9TBoA0PUCgaoIidpLPS9k3iIa',
 		redirect_uri,
-		nonce: Math.floor(Math.pow(10, 16) * Math.random()),
+		nonce: 2356633230388056, //Math.floor(Math.pow(10, 16) * Math.random()),
 		response_type: 'code',
 		state,
-		scope: 'openid payments',
-		request: await generateJWT
+		scope: 'openid payments'
 	};
 	options.request = await generateJWT(options);
 	window.open(filename + '?' + qs(options));

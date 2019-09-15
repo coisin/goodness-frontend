@@ -10,5 +10,7 @@ export default class Feed extends React.Component {
         
       </div>
     </div>
+	<script src="../utils/facebook.js"></script>
+  	<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
   }
 }
