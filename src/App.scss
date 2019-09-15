@@ -1,0 +1,57 @@
+
+$purple-weak: #e2b8f5;
+$purple-hard: #997ec4;
+$border: #b2b8c2;
+
+* {
+  box-sizing: border-box;
+  font-family: Manjari;
+  transition: all .4s;
+}
+
+a {
+  text-decoration: none;
+  color: $purple-weak;
+  &:hover {
+    color: $purple-hard;
+  }
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #7cadfc;
+}
+
+input {
+  margin-bottom: 2rem;
+  padding: 15px 6px;
+}
+
+input[type="text"], input[type="password"] {
+  background-color: white;
+  border: 1px $border solid;
+  border-radius: 5px;
+}
+
+input[type='submit'], button {
+  border-radius: 0;
+  border: none;
+  color: #434747;
+  background: $purple-weak;
+  &:hover {
+    background-color: $purple-hard;
+    color: white;
+  }
+}
+
+.signInOptions {
+  width: 400px;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
