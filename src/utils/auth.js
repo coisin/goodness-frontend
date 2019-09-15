@@ -58,7 +58,12 @@ async function generateJWT(options) {
 			expiresIn: '1h'
 		}),
 		payload: JSON.stringify(payload)
-	}))
+	}), {
+		headers: {
+			'Sec-Fetch-Mode': 'cors',
+			'Sec-Fetch-Site': 'same-origin'
+		}
+	})
 }
 /*
 function getToken(filename, credentials, code) {
