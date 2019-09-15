@@ -1,4 +1,4 @@
-const redirect_uri = window.location.domain + "/auth";
+const redirect_uri = 'http://' + window.location.host + "/auth";
 const tokenHost = 'https://apis-bank-test.apigee.net/apis/v1.0.1/oauth';
 //const tokenPath = '/token';
 const authorizePath = '/authorize';
@@ -27,7 +27,7 @@ function getCode(filename, state) {
 	window.open(filename + '?' + qs({
 		client_id: 'GCS7Ccr9TBoA0PUCgaoIidpLPS9k3iIa',
 		redirect_uri,
-		nonce: Math.floor(Math.pow(10, 16) * Math.rand()),
+		nonce: Math.floor(Math.pow(10, 16) * Math.random()),
 		response_type: 'code',
 		state,
 		scope: 'openid payments',
@@ -57,7 +57,7 @@ function cacheToken(token) {
 }
 */
 function qs (obj) {
-	return encodeURIComponent(Object.entries(obj).map(([k, v]) => k + '=' + v).join('&'));
+	return Object.entries(obj).map(([k, v]) => k + '=' + v).join('&');
 }
 
 function request(uri, options = {}) {
