@@ -12,8 +12,8 @@ export default class SignIn extends React.Component {
   }
   render() {
     return <form onSubmit={this.onSubmit}>
-      <input name='email' type='text' onChange={this.onChange} />
-      <input name='password' type='password' onChange={this.onChange} />
+      <input name='email' type='text' placeholder='Email' onChange={this.onChange} />
+      <input name='password' type='password' placeholder='Password' onChange={this.onChange} />
       <input type='submit' value='Sign In' />
     </form>;
   }
