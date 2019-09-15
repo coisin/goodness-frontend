@@ -1,17 +1,16 @@
-const redirect_uri = window.location.href + "/auth";
+const redirect_uri = window.location.domain + "/auth";
 const tokenHost = 'https://apis-bank-test.apigee.net/apis/v1.0.1/oauth';
-const tokenPath = '/token';
+//const tokenPath = '/token';
 const authorizePath = '/authorize';
 
-export async function Auth() {
-	let state = Math.random().toString(36).substring(2);
-	let credentials = await getCredentials();
-	let code = await getCode(tokenHost + tokenPath, credentials, state);
-	let token = await getToken(tokenHost + authorizePath, credentials, code);
-	cacheToken(token);
-	return token.access_token;
+export default async function Auth(user_id) {
+	let state = Math.random().toString(36).substring(2) + user_id;
+	getCode(tokenHost + authorizePath, state);
+	//let token = await getToken(tokenHost + authorizePath, credentials, code);
+	//cacheToken(token);
+	//return token.access_token;
 }
-
+/*
 function getCredentials() {
 	return new Promise((res, rej) => {
 		let req = new XMLHttpRequest();
@@ -23,25 +22,19 @@ function getCredentials() {
 		req.send();
 	});
 }
-
-function getCode(filename, credentials, state) {
-	return request(filename + '?' + qs({
-		client_id: credentials.client_id,
+*/
+function getCode(filename, state) {
+	window.open(filename + '?' + qs({
+		client_id: 'GCS7Ccr9TBoA0PUCgaoIidpLPS9k3iIa',
 		redirect_uri,
 		nonce: Math.floor(Math.pow(10, 16) * Math.rand()),
 		response_type: 'code',
 		state,
 		scope: 'openid payments',
 		request: null
-	}), {
-		json: true					//use a cached version of work out how to generate
-	})
-		.then((data) => {
-			if (!data.state !== state) return null;
-			return data.code;
-		});
+	}));
 }
-
+/*
 function getToken(filename, credentials, code) {
 	return request(filename, {
 		method: 'POST',
@@ -62,7 +55,7 @@ function cacheToken(token) {
 		data: JSON.stringify(token)
 	});
 }
-
+*/
 function qs (obj) {
 	return encodeURIComponent(Object.entries(obj).map(([k, v]) => k + '=' + v).join('&'));
 }

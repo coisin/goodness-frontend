@@ -1,5 +1,5 @@
 const fs = require('fs');
-const codes = require('./Data/codes.json');
+const codes = require('./codes.json');
 
 function toCountryCode (path1, path2, countryKey, scoreKey, type) {
   let emissions_parsed = [];
