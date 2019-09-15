@@ -235,3 +235,23 @@ input[type='submit'], button {
     transform: translateX(0);
   }
 }
+
+.fixed-bottom {
+    background-color: rgb(68, 27, 146);
+    border-top: 1px solid #E7E7E7;
+	text-align: center;
+    padding: 0;
+    left: 0;
+    bottom: 0;
+    height: 20vh;
+    width: 80%
+}
+
+.bottom1 {
+    background-color: rgb(146, 27, 27);
+    position: relative;
+    left: 0;
+    bottom: 0;
+    height: 20vh;
+    width: 20%
+}
