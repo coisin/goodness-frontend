@@ -7,8 +7,7 @@ export default class SignInOptions extends React.Component {
   render() {
     return <div className='signInOptions'>
       <SignIn />
-      or ..
-      <Link to='/signup'>calculate your environmental awareness score.</Link>
+      Or <Link to='/signup'>calculate your environmental awareness score.</Link>
     </div>
   }
 }

@@ -24,17 +24,118 @@ a {
   align-items: center;
   height: 100vh;
   background-color: #7cadfc;
+  &.signUpContainer {
+    align-items: flex-start;
+  }
 }
 
-input {
+.signUpContainer {
+  .signUp {
+    display: flex;
+    justify-content: center;
+    height: 70%;
+    width: 100%;
+    background: white;
+    .quiz {
+      display: flex;
+      align-items: center;
+      width: 700px;
+      .question {
+        height: 100%;
+        animation: fadeInRight 1s;
+        width: 100%;
+        &.fadeOutLeft {
+          animation: fadeOutLeft .3s;
+        }
+        .questionContent {
+          height: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: stretch;
+          flex-wrap: wrap;
+          .questionSection {
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            flex-grow: 1;
+            flex-direction: column;
+            align-items: stretch;
+          }
+          width: 100%;
+          .highlightedSection {
+            background-color: $purple-weak;
+            padding: 12px;
+            text-align: center;
+            margin-bottom: 1rem;
+          }
+          .formGroup {
+            display: flex;
+            align-items: stretch;
+            * {
+              margin-bottom: 0;
+            }
+            select {
+              flex-grow: 3;
+              border: 1px $border solid;
+              border-radius: 0;
+            }
+            input {
+              flex-grow: 10;
+            }
+            span {
+              flex-grow: 1;
+              border: 1px $border solid;
+              padding: 10px;
+              display: flex;
+              padding: 15px;
+            }
+            margin-bottom: 2rem;
+            * {
+              border-radius: 0;
+            }
+            *:first-child {
+              border-top-left-radius: 5px;
+              border-bottom-left-radius: 5px;
+            }
+            *:last-child {
+              border-top-right-radius: 5px;
+              border-bottom-right-radius: 5px;
+            }
+          }
+          .sliderContainer {
+            margin-bottom: 2rem;
+          }
+          &.slider {
+            .questionTitle {
+              text-align: center;
+            }
+          }
+          .questionTitle {
+            margin-bottom: 2rem;
+            font-size: 120%;
+          }
+          .questionSubtitle {
+            margin-bottom: .5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+input, button, select {
   margin-bottom: 2rem;
   padding: 15px 6px;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="number"], select {
   background-color: white;
   border: 1px $border solid;
   border-radius: 5px;
+}
+
+input[type="number"] {
+  text-align: right;
 }
 
 input[type='submit'], button {
@@ -48,10 +149,41 @@ input[type='submit'], button {
   }
 }
 
-.signInOptions {
+.signUpForm {
+  animation: fadeInRight 1s;
+  align-items: center;
+  display: flex;
+  form {
+    width: 100%;
+  }
+}
+
+.signInOptions, .signUpForm {
   width: 400px;
   form {
     display: flex;
     flex-direction: column;
+  }
+}
+
+@keyframes fadeOutLeft {
+   0% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+   100% {
+      opacity: 0;
+      transform: translateX(-40px);
+   }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
