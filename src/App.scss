@@ -44,6 +44,30 @@ a {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .eventBoxes {
+    .eventBoxContainer {
+      width: 100%;
+    }
+  }
+  .block.signUpContainer .signUp {
+    .quiz {
+      width: 100%;
+    }
+    padding: 10px;
+  }
+  .block {
+    padding: 2em;
+    text-align: center;
+    .signInOptions, .signUpForm {
+      width: 100%;
+    }
+    .feed {
+      padding: 20px;
+    }
+  }
+}
+
 .block {
   display: flex;
   flex-direction: column;
@@ -52,11 +76,11 @@ a {
   height: 100vh;
   background-color: #7cadfc;
   &.signUpContainer {
-    align-items: flex-start;
+    overflow-x: hidden;
   }
 }
 
-.block.feedContainer {
+.block.eventsPage, .block.signUpContainer {
   height: initial;
   min-height: 100vh;
 }
@@ -75,7 +99,9 @@ a {
 }
 
 .signUpContainer {
+  position: relative;
   .signUp {
+    position: absolute;
     display: flex;
     justify-content: center;
     min-height: 70%;
@@ -99,6 +125,7 @@ a {
           align-items: stretch;
           flex-wrap: wrap;
           .questionSection {
+            max-width: 100%;
             display: flex;
             justify-content: center;
             padding: 1rem;
