@@ -8,7 +8,7 @@ export default class SignIn extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
-    this.authService = new AuthService();
+    this.authService = new AuthService('http://13.68.138.74:8000');
   }
   render() {
     return <form onSubmit={this.onSubmit}>

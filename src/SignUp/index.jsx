@@ -13,6 +13,7 @@ export default class SignUp extends React.Component {
     };
     this.onQuizSubmission = this.onQuizSubmission.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.authService = new AuthService('http://13.68.138.74:8000');
   }
   render() {
     let content;
@@ -37,6 +38,6 @@ export default class SignUp extends React.Component {
     });
   }
   onSubmit(email, password) {
-
+    this.authService.register(email, password);
   }
 }

@@ -5,11 +5,14 @@ export default class AuthService {
     this.domain = domain;
   }
   login(email, password) {
-    axios.post(`${this.domain}/user/new`, {email, password}).then((response) => {
+    axios.post(`${this.domain}/api/user/login`, {email, password}).then((response) => {
       localStorage.setItem('token', response.data.account.token);
     });
   }
   logout() {
     localStorage.removeItem('token');
+  }
+  register(email, password) {
+    axios.post(`${this.domain}/api/user/new`, {email, password});
   }
 }

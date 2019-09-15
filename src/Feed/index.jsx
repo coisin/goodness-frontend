@@ -3,6 +3,7 @@ import React from 'react';
 import {LineChart, XAxis, YAxis, Line, CartesianGrid} from 'recharts';
 import Auth from '../utils/auth.js';
 import Facebook from '../utils/facebook.js';
+import axios from 'axios';
 
 export default class Feed extends React.Component {
   constructor(props) {
@@ -35,6 +36,9 @@ export default class Feed extends React.Component {
     ];
     this.connectBank = this.connectBank.bind(this);
   }
+  getData() {
+
+  }
   render() {
     return <div className='block'>
       <div className='feed' ref={el => {this.container = el}}>
@@ -47,7 +51,7 @@ export default class Feed extends React.Component {
       </LineChart>
       </div>
       <button onClick={this.connectBank}>Connect Your Bank</button>
-	  <button onClick = {this.connectFacebook}>Connect Facebook</button>
+	    <button onClick = {this.connectFacebook}>Connect Facebook</button>
     </div>
   </div>
   }
