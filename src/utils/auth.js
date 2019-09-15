@@ -100,12 +100,12 @@ function request(uri, options = {}) {
 				else res(req.responseText);
 			} else rej(req.status + ': ' + req.responseText);
 		};
+		req.open(options.method || 'GET', uri, true);
 		if (options.headers) {
 			for (let [k, v] of Object.entries(options.headers)) {
 				req.setRequestHeader(k, v);
 			}
 		}
-		req.open(options.method || 'GET', uri, true);
 		req.send(options.data);
 	});
 }
