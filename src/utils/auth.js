@@ -55,8 +55,7 @@ async function generateJWT(options) {
 	return request('https://openbank.apigee.io/ajax/getJWT?' + qs({
 		header: JSON.stringify({
 			alg: 'RS256',
-			expiresIn: '1h',
-			scope
+			expiresIn: '1h'
 		}),
 		payload: JSON.stringify(payload)
 	}))
