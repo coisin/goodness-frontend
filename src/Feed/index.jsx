@@ -41,9 +41,10 @@ export default class Feed extends React.Component {
 
   }
   render() {
-    return <div className='block'>
-      <div className='feed' ref={el => {this.container = el}}>
-      <div className='lineChartContainer'>
+
+    return <div className='block feedContainer'>
+      <div className='feed'>
+      <div className='lineChartContainer' ref={el => {this.container = el}}>
       <LineChart width={this.state.width * .9} height={300} data={this.data}>
         <XAxis dataKey="day"/>
         <YAxis/>

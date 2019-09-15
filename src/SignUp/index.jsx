@@ -29,15 +29,9 @@ export default class SignUp extends React.Component {
     </div>
   }
   onQuizSubmission(answers) {
-    console.log(answers);
-    axios.post('/api/init', {
-      ...answers
-    });
-    this.setState({
-      quizCompleted: true,
-    });
+    this.setState({answers, quizCompleted: true});
   }
   onSubmit(email, password) {
-    this.authService.register(email, password);
+    this.authService.register(email, password, this.state.answers);
   }
 }

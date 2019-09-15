@@ -17,6 +17,57 @@ a {
   }
 }
 
+.eventBoxes {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: stretch;
+  align-items: stretch;
+  .eventBoxContainer {
+    padding: 29px 10px;
+    width: 30%;
+    .eventBox {
+    //  border: 1px solid #d0d9db;
+    background-color: #f6f5f7;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+      padding: 3rem 2rem;
+      img {
+        align-self: center;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .eventBoxes {
+    .eventBoxContainer {
+      width: 100%;
+    }
+  }
+  .block.signUpContainer .signUp {
+    .quiz {
+      width: 100%;
+    }
+    padding: 10px;
+  }
+  .block {
+    padding: 2em;
+    text-align: center;
+    .signInOptions, .signUpForm {
+      width: 100%;
+    }
+    .feed {
+      padding: 20px;
+    }
+  }
+}
+
 .block {
   display: flex;
   flex-direction: column;
@@ -25,8 +76,13 @@ a {
   height: 100vh;
   background-color: #7cadfc;
   &.signUpContainer {
-    align-items: flex-start;
+    overflow-x: hidden;
   }
+}
+
+.block.eventsPage, .block.signUpContainer {
+  height: initial;
+  min-height: 100vh;
 }
 
 .lineChartContainer {
@@ -43,7 +99,9 @@ a {
 }
 
 .signUpContainer {
+  position: relative;
   .signUp {
+    position: absolute;
     display: flex;
     justify-content: center;
     min-height: 70%;
@@ -67,6 +125,7 @@ a {
           align-items: stretch;
           flex-wrap: wrap;
           .questionSection {
+            max-width: 100%;
             display: flex;
             justify-content: center;
             padding: 1rem;
