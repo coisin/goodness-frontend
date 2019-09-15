@@ -4,14 +4,15 @@ import {LineChart, XAxis, YAxis, Line, CartesianGrid} from 'recharts';
 import Auth from '../utils/auth.js';
 import Facebook from '../utils/facebook.js';
 import axios from 'axios';
+import Footer from '../common/Footer.jsx';
 
 export default class Feed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: null,
-      showRecords: false
-    };
+      showRecords: false,
+      width: null
+	};
     this.data = [
       {
         day: 'Monday', score: 43
@@ -63,7 +64,9 @@ export default class Feed extends React.Component {
       <button onClick={this.connectBank}>Connect Your Bank</button>
 	    <button onClick = {this.connectFacebook}>Connect Facebook</button>
     </div>
+	<Footer/>
   </div>
+
   }
   setContainerWidth() {
     var style = window.getComputedStyle(this.container, null);
