@@ -122,7 +122,6 @@ export default class HomeQuestion extends React.Component {
     </div>
   }
   onClick() {
-    console.log(this.state);
     this.props.submitQuestion(this.props.name, this.state, this.props.nextQuestions);
   }
   onSliderChange(name, value) {

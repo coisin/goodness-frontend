@@ -28,6 +28,7 @@ export default class SignUp extends React.Component {
     </div>
   }
   onQuizSubmission(answers) {
+    console.log(answers);
     axios.post('/api/init', {
       ...answers
     });
@@ -36,6 +37,6 @@ export default class SignUp extends React.Component {
     });
   }
   onSubmit(email, password) {
-    
+
   }
 }
