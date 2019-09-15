@@ -17,6 +17,30 @@ a {
   }
 }
 
+.recordList {
+  width: 100%;
+  .record {
+    display: flex;
+    .left, .right {
+      flex-grow: 1;
+    }
+    .left {
+      text-align: center;
+      vertical-align: center;
+      background: #ebe2e1;
+    }
+    .right {
+      display: flex;
+
+      button {
+        margin: 0 0 0 20px;
+        flex-grow: 1;
+        width: 30%;
+      }
+    }
+  }
+}
+
 .eventBoxes {
   width: 100%;
   display: flex;
@@ -87,6 +111,7 @@ a {
 
 .lineChartContainer {
   margin-bottom: 30px;
+  width: 100%;
 }
 
 .feed {
@@ -95,7 +120,11 @@ a {
   width: 80%;
   background-color: white;
   display: flex;
+  align-items: center;
   flex-direction: column;
+  button {
+    width: 85%;
+  }
 }
 
 .signUpContainer {

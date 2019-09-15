@@ -9,29 +9,30 @@ export default class Feed extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      width: null
+      width: null,
+      showRecords: false
     };
     this.data = [
       {
-        day: 'Monday', score: Math.random() * 1000
+        day: 'Monday', score: 43
       },
       {
-        day: 'Tuesday', score: Math.random() * 1000
+        day: 'Tuesday', score: 23
       },
       {
-        day: 'Wednesday', score: Math.random() * 1000
+        day: 'Wednesday', score: 65
       },
       {
-        day: 'Thursday', score: Math.random() * 1000
+        day: 'Thursday', score: 98
       },
       {
-        day: 'Friday', score: Math.random() * 1000
+        day: 'Friday', score: 34
       },
       {
-        day: 'Saturday', score: Math.random() * 1000
+        day: 'Saturday', score: 2
       },
       {
-        day: 'Sunday', score: Math.random() * 1000
+        day: 'Sunday', score: 34
       }
     ];
     this.connectBank = this.connectBank.bind(this);
@@ -40,11 +41,19 @@ export default class Feed extends React.Component {
 
   }
   render() {
-
+    const data = [
+      {text: '7 gallons of petrol'},
+      {text: 'life is great'}
+    ];
+    const recordContent = this.state.showRecords ? <div className='recordList'>
+      {data.map((rec) => {
+        return <Record rightContent={rec.rightContent} text={rec.text} />
+      })}
+    </div> : null;
     return <div className='block feedContainer'>
       <div className='feed'>
       <div className='lineChartContainer' ref={el => {this.container = el}}>
-      <LineChart width={this.state.width * .9} height={300} data={this.data}>
+      <LineChart width={this.state.width} height={300} data={this.data}>
         <XAxis dataKey="day"/>
         <YAxis/>
         <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
@@ -74,6 +83,41 @@ export default class Feed extends React.Component {
   }
 
   connectBank() {
-    Auth('Hello World');
+    this.setState({showRecords: true});
+  }
+}
+
+class Record extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEditing: false,
+      rightContent: 0
+    };
+    this.onChange = this.onChange.bind(this);
+    this.toggleEditing = this.toggleEditing.bind(this);
+  }
+  render() {
+    let rightContent = this.state.rightContent;
+    if(this.state.isEditing) {
+      rightContent = <input type='number' value={this.state.rightContent} onChange={this.onChange} />
+    }
+    return <div className='record'>
+      <div className='left'>
+        {this.props.text}
+      </div>
+      <div className='right'>
+        {rightContent}
+        <button onClick={this.toggleEditing}>{this.isEditing ? 'Confirm' : 'Edit'}</button>
+      </div>
+    </div>
+  }
+  toggleEditing() {
+    this.setState({
+      isEditing: !this.state.isEditing
+    });
+  }
+  onChange(e) {
+    this.setState({rightContent: e.target.value});
   }
 }
