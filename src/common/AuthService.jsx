@@ -29,7 +29,7 @@ export default class AuthService {
     answers['location_mode'] = 1;
     answers['income'] = answers['gross-annual-household-income'];
     answers['size'] = answers['people-in-household'];
-    axios.post(`${this.domain}/api/init`, {...answers}, {
+    axios.post(`${this.domain}/api/init`, answers, {
       headers: {
          Authorization: `Bearer ${localStorage.getItem('token')}`
       }
