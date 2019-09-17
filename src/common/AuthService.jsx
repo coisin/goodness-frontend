@@ -20,7 +20,7 @@ export default class AuthService {
       if(response.status === 200 && response.data.status) {
         localStorage.setItem('token', response.data.account.token);
         this.sendAnswers(answers);
-      //  window.location.href = '/feed';
+        window.location.href = '/feed';
       }
     });
   }
